@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Log Analysis MIS for Business</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Log Analysis MIS for Business</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <table class='table'>
+                <thead><tr><td colspan='2' class='h4'>Sumary Information</td></tr></thead>
+                <tbody>
+                    <tr><td>Hostname:</td><td>Australia</td></tr>
+                    <tr><td>Server Name:</td><td><select name='servers' id='servers'></select></td></tr>
+                    <tr><td>Log File:</td><td><select name='logfiles' id='logfiles'></select></td></tr>
+                    <tr><td>Report Date:</td><td>04/05/2017 16:29</td></tr>
+                </tbody>
+            </table>
+                </div>
+                
+            </div>
+        </div>
+                
+        <hr>
+        <!-- Footer -->
+        <footer>
+          <div class="navbar navbar-inverse navbar-fixed-bottom">
+                 <p style="color:white;">Copyright &copy; Rishabh Tech, 2017</p>
+            </div>
+        </footer>
+
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $( "#servers" )
+      .change(function () {
+        var str = "";
+        $( "select option:selected" ).each(function() {
+          var servername = $( this ).text();
+          $('[servername="'+servername+'"]').toggle(); 
+        });
+      })
+      .change();
+    $( "#hostnames" )
+      .change(function () {
+        var str = "";
+        $( "select option:selected" ).each(function() {
+          var hostname = $( this ).text();
+          $('[hostname="'+hostname+'"]').toggle(); 
+        });
+      })
+      .change();
+    $( "#logfiles" )
+      .change(function () {
+        var str = "";
+        $( "select option:selected" ).each(function() {
+          var logfile = $( this ).text();
+          var svlf = logfile.split(" ");          
+          $('[logfile="'+svlf[1]+'"]').toggle(); 
+        });
+      })
+      .change();
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+---
+abstract: 'Render UML sequence diagrams, often by running the code.'
+author:
+  - 'Phil Crow <philcrow2000@yahoo.com>'
+build_requires:
+  ExtUtils::MakeMaker: '0'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 0
+generated_by: 'ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150010'
+license: unknown
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: UML-Sequence
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  GD: '2.30'
+  GD::Text: '0.86'
+  Test::More: '0'
+  XML::DOM: '1.25'
+version: '0.08'
+x_serialization_backend: 'CPAN::Meta::YAML version 0.018'

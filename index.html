@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Log Analysis MIS for Business</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css">
+
+<style type="text/css">
+    
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Log Analysis MIS for Business</a>
+            </div>
+		    <ul class="nav navbar-nav navbar-right">
+		      <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> </a></li>
+		    </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <header class="jumbotron hero-spacer">
+            <h3  style="margin-top: 0px;margin-bottom: 25px;">Management Information System Log Reports (MIS)</h3>
+            <div class="well well-sm">Refine</div>
+            <div class="container" style="margin-bottom: 25px;">
+                <div class="row">
+                    <form class="from-inline" role="form" action="azlfmis.html" method="post">
+                        <div class="panel panel-default col-md-6">
+                            <div class="panel-body form-group">
+                                  <div class="form-group">
+                                    <select class="form-control">
+                                        <option value="0" selected>By Hostname</option>
+                                        
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <select class="form-control">
+                                        <option value="0" selected>By Server Instance</option>
+                                        
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <select class="form-control">
+                                        <option value="0" selected>By Application</option>
+                                        <option value="1"></option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <select class="form-control">
+                                        <option value="0" selected>By Status</option>
+                                        <option value="1">RUNNING</option>
+                                        <option value="2">STOPPED</option>
+                                    </select>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default  col-md-6">
+                            <div class="panel-body form-group">
+                                  <div class="form-group">
+                                    <select class="form-control">
+                                        <option value="0" selected>By Message Type</option>
+                                        <option value="1">ERROR</option>
+                                        <option value="1">WARNING</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <select class="form-control">
+                                        <option value="0" selected>By EXCEPTIONS</option>
+                                        <option value="1"></option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <select class="form-control">
+                                        <option value="0" selected>By MESSAGEID</option>
+                                        
+                                    </select>
+                                  </div>
+                                  <table class="table">
+                                  <tr><td>
+                                  <div class="form-group">
+                                        <div class="input-group margin-bottom-sm">
+                                            <span class="input-group-addon fa fa-calendar"></i></span>
+                                            <input name="fromdate" id="fromdate" class="fromdate" onchange="return dateChecking(this);" type="text" placeholder="From Date">
+                                        </div>
+                                  </div>
+                                  </td>
+                                  <td>
+                                  <div class="form-group">
+                                        <div class="input-group margin-bottom-sm" id="todategrp">
+                                            <span class="input-group-addon fa fa-calendar"></span>
+                                            <input name="todate" id="todate" class="todate"  onchange="return DateCompare1(document.getElementById('fromdate'), document.getElementById('todate'));" type="text" placeholder="To Date">
+                                        </div>                                  
+                                  </div>
+                                  </td>
+                                  </tr>
+                                  </table>
+                            </div>
+                        </div>
+
+                        <button type="btn btn-primary btn-large" class="btn btn-primary pull-right" style="margin-top: 25px;">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>View Report
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <hr>
+        <!-- Footer -->
+        <footer>
+          <div class="navbar navbar-inverse navbar-fixed-bottom">
+                 <p style="color:white;">Copyright &copy; Rishabh Tech, 2017</p>
+            </div>
+        </footer>
+
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+    var ayt = jQuery.noConflict();
+    ayt(function() {
+        ayt( ".fromdate" ).datepicker({
+            dateFormat: 'dd-mm-yy',
+            maxDate: new Date(),
+            onClose: function( selectedDate ) {
+                ayt( ".todate" ).datepicker( "option", "minDate", selectedDate );
+            }
+        });
+        ayt( ".todate" ).datepicker({
+            dateFormat: 'dd-mm-yy',
+            firstDay: 1,
+            maxDate: new Date(),
+            onClose: function( selectedDate ) {
+                ayt( ".fromdate" ).datepicker( "option", "maxDate", selectedDate );
+            }
+        });
+    });
+
+    function dateChecking(Obj){
+        date=new Date();
+        var curr_date = date.getDate();
+        var curr_month = date.getMonth();
+        curr_month = curr_month + 1;
+        if(curr_month < 10)
+        curr_month="0"+curr_month;
+        var curr_year = date.getFullYear();
+        var today= curr_date + '-'+ curr_month + '-'+ curr_year;
+        checkdate=Obj.value;
+        var FromDate = new Date(checkdate.substr(6,4),(checkdate.substr(3,2)-1),checkdate.substr(0,2));
+        var ToDate = new Date(today.substr(6,4),(today.substr(3,2)-1),today.substr(0,2));
+        if((FromDate > ToDate)) {
+            alert('From Date cant be in the future, Choose past date!');
+            Obj.value = '';
+            return false;
+        } else {
+            document.getElementById('todate').value=Obj.value;
+        }
+        return true;
+    }
+
+    function DateCompare1(InDateCtrl, OutDateCtrl) {
+        if(InDateCtrl.value == '' && OutDateCtrl.value == '')   
+            return true;
+            
+        var InDate = InDateCtrl.value;
+        var OutDate = OutDateCtrl.value;
+        var FromDate = new Date(InDate.substr(6,4),(InDate.substr(3,2)-1),InDate.substr(0,2));
+        var ToDate = new Date(OutDate.substr(6,4),(OutDate.substr(3,2)-1),OutDate.substr(0,2));
+        
+        if(OutDateCtrl.value == '' || (FromDate > ToDate)) {
+            alert("To Date must be greater or same as From date.");
+            OutDateCtrl.value = '';
+            return false;
+        }
+        if(FromDate > ToDate) {
+            alert("To Date Less then or equal to current date.");
+            OutDateCtrl.value = '';
+            return false;
+        }
+
+        return true;
+    }
+        
+</script>
+
+</body>
+
+</html>
